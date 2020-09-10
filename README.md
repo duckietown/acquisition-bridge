@@ -1,5 +1,4 @@
 
-
 To launch the acquisition bridge on a watchtower : 
 
 ```
@@ -11,3 +10,4 @@ To launch the acquisition bridge on a duckiebot :
 ```
 docker -H <HOSTNAME>.local run --name acquisition-bridge --network=host -dit -e LAB_ROS_MASTER_IP=<LAB_SERVER_IP> -v /data:/data duckietown/acquisition-bridge:devel20-arm32v7
 ```
+
