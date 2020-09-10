@@ -1,11 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import rospy
 from sensor_msgs.msg import CompressedImage, CameraInfo
 from std_msgs.msg import Float32, Bool, Int16
-import cPickle as pickle
+import pickle as pickle
 import os
-import Queue
+import queue
 import collections
 import yaml
 from duckietown_msgs.msg import WheelsCmdStamped
@@ -101,8 +101,8 @@ class publishingProcessor():
 
                 seq_stamper += 1
             except KeyboardInterrupt:
-                raise(Exception("Exiting"))
-            except Queue.Empty:
+                raise Exception
+            except queue.Empty:
                 time.sleep(0.05)
                 pass
             except Exception as e:

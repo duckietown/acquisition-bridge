@@ -1,11 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import rospy
 import numpy as np
 from sensor_msgs.msg import CompressedImage, Image, CameraInfo
-import cPickle as pickle
+import pickle as pickle
 import os
-import Queue
+import queue
 import time
 import threading
 import cv2
@@ -87,7 +87,7 @@ class acquisitionProcessor():
                 self.node_name, fname))
             fname = self.getFilePath("default")
             if not os.path.isfile(fname):
-                print("Nothing in %s" % fname)
+                print(("Nothing in %s" % fname))
                 return
 
         with open(fname, 'r') as in_file:
@@ -267,8 +267,8 @@ class acquisitionProcessor():
                     self.logger.info("Emergency stop toggled")
 
             except KeyboardInterrupt:
-                raise(Exception("Exiting"))
-            except Queue.Empty:
+                raise Exception
+            except queue.Empty:
                 pass
             except Exception as e:
                 self.logger.warning("Exception: %s" % str(e))
