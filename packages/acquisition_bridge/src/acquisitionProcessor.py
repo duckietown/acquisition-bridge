@@ -92,7 +92,7 @@ class acquisitionProcessor():
 
         with open(fname, 'r') as in_file:
             try:
-                yaml_dict = yaml.load(in_file)
+                yaml_dict = yaml.load(in_file, Loader=yaml.Loader)
             except yaml.YAMLError as exc:
                 self.logger.warning("could not open %s " % in_file)
                 # rospy.logfatal("[%s] YAML syntax error. File: %s fname. Exc: %s" % (
